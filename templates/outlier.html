@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+        background-image: url("static/background.jpeg") ; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        }
+        h1 {text-align: center;
+                font-family: "Arial Black", sans-serif;
+                font-size: 2.5em;
+                letter-spacing: -1px;
+                background-color: black;
+                color: white;
+                }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Title</title>
+</head>
+<body>
+    <h1> Outlier's Table</h1>
+<br><br>
+<table class="w3-table-all w3-card-4">
+    <tr >
+        {% for col in column_names %}
+        <th >{{col}}</th>
+        {% endfor %}
+    </tr>
+    {% for row in row_data %}
+    <tr>
+        {% for col, row_ in zip(column_names, row) %}
+        {% if col == link_column %}
+        <td>
+            {% for columns in row_ %}
+            <a href="{{ url_for('user_details', user_id = columns , ent_cols = data_x) }}">
+            <button>{{ columns }}</button>
+            </a>
+            {% endfor %}
+        </td>
+        {% else %}
+        <td>{{row_}}</td>
+        {% endif %}
+        {% endfor %}
+    </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>

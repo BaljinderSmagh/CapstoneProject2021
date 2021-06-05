@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            body {
+            background-image: url("static/background.jpeg") ; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            }
+            h1 {text-align: center;
+                font-family: "Arial Black", sans-serif;
+                font-size: 2.5em;
+                letter-spacing: -1px;
+                background-color: black;
+                color: white;
+                }
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <title id="title">Results</title>
+        <!-- <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" /> -->
+    </head>
+    <body>
+        <h1>Result</h1>
+        <br></br>
+        <div>
+            <!-- #In filename mention the name 3d visualization picture -->
+            <center><img src= "{{ url_for('static', filename = 'cluster_Results.png') }}" style="width:800px;height:650px;"/></center>
+        </div>
+        <br></br>
+        <br></br>
+        <h2><center><b>Users Distribution in Clusters</b></center></h2>
+        <div id="content">
+            <table class="w3-table-all w3-hoverable">
+                <tr>
+                    <th valign = "middle">Cluster</th>
+                    <th valign = "middle" >Cluster Count</th>
+                </tr>
+                {% for key in data3 %}
+                    <tr>
+                        <td valign = "middle">
+                            <a href="{{url_for('cluster_details', data1 = key[0], data2 = key[2])}}">
+                                {{ key[0] }}
+                            </a>
+                        </td>
+                        <td valign = "middle">{{ key[1] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <br></br>
+        <table>
+            <tr>
+            <td valign = "middle">
+        <form action="{{url_for('outlier', data=ent_cols)}}" method="post">
+            <label><b>Check for any users who has more/less access rights :
+            </b></label>
+            <a href=outllier>
+                <button  class="test1" style="text-align: right;"> Outliers Detected </button>
+            </a>
+        </form>
+    </td>
+</tr>
+<tr>
+    <td style="padding:0 50px;"></td>
+</tr>
+    <tr>
+<td valign = "middle">
+        <form action="{{url_for('predictions', ent_cols=ent_cols, user_cols = user_cols)}}">
+            <label><b>Recommend access rights to new user :
+            </b></label>
+            <a href=predictions>
+                <button c class="test2" style="float: right;"> Entitlement Prediction </button>
+            </a>
+            <!-- <input type="submit" value="Entitlement Prediction" /> -->
+        </form>
+    </td>
+</tr>
+    </table>
+        <br></br>
+        <br></br>
+    </body>
+</html>

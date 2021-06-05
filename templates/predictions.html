@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body.back {
+            background-image: url("static/background.jpeg") ; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            }
+            h1 {text-align: center;
+                font-family: "Arial Black", sans-serif;
+                font-size: 2.5em;
+                letter-spacing: -1px;
+                background-color: black;
+                color: white;
+                }
+</style>
+</head> 
+<body class="back">
+<div style="background-color: #cbcbd2;
+border: 2px solid black;
+opacity: 0.8;">
+<h1>Recommendation</h1>
+
+<h2><center>Select details related to new user :</center></h2>
+
+<form action="{{url_for('pred_results', data=select_user.keys(),ent_cols=ent_cols)}}" method="POST" enctype="multipart/form-data"><center>
+  {% for key,val in select_user.items() %}   
+  <label for="user-items"><b>{{ key }}:</b></label>
+  
+  <select name={{ key }}>
+    {% for values in val %}
+    <option value={{ values }}>{{ values }}</option>
+    {% endfor %}
+  </select>
+  
+  <br><br>
+  {% endfor %}
+  <input type="submit" value="Submit"></center>
+  <br>
+</form>
+</div>
+
+</body>
+</html>

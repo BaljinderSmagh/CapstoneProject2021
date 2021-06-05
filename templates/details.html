@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h1 {text-align: center;
+                font-family: "Arial Black", sans-serif;
+                font-size: 2.5em;
+                letter-spacing: -1px;
+                background-color: black;
+                color: white;
+                }
+    </style>
+    <meta charset="utf-8">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+   
+</head>
+<body style="margin:2%; overflow-x: scroll;" > 
+    <h1>{{ data5 }}'s Users</h1>
+    <div class="container"> 
+        <h2 class="page-header">User File Analysis</h2>
+        
+    {% for images in data8 %}
+    <img src="{{ url_for('static', filename= images) }}" alt="{{ images }}" style="width:400px;height:400px;">
+    {% endfor %} 
+    </div>
+    
+
+<br></br>
+<div class="container"> 
+    <h2 class="page-header">Access File Analysis</h2>
+    
+{% for images in data9 %}
+
+<img src="{{ url_for('static', filename= images) }}" alt="{{ images }}" style="width:400px;height:400px;">
+
+{% endfor %}
+
+</div>
+<br></br>
+<h2> {{ data5 }}'s Users details :</h2>
+    <div style="float:left; margin:20px;">
+        
+        <table class="w3-table-all w3-hoverable">
+            <tr>
+                {% for col in data7 %}
+                    <th>{{ col }}</th>
+                {% endfor %}
+            </tr>
+            {% for val in data6 %}
+                <tr>
+                    {% for i in val %}
+                        <td>{{ i }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+   
+
+</body>
+</html> 

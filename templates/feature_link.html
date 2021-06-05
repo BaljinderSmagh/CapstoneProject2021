@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <style>
+            body {
+            background-image: url("static/background.jpeg") ; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+            }
+            div.back {
+                background-color: #cbcbd2;
+                border: 2px solid black;
+                opacity: 0.8;
+            }
+            h1 {text-align: center;
+                font-family: "Arial Black", sans-serif;
+                font-size: 2.5em;
+                letter-spacing: -1px;
+                background-color: black;
+                color: white;
+                }
+
+    </style>
+    <title>Second Page</title>
+</head>
+<body>
+    <div class="back">
+    <h1>Feature Selection</h1>
+
+    <div class="">
+        <form action="columns" method="post">
+            <table>
+                <tr>
+                <td>
+            <label for="user file"><b>Choose User File Columns which helps in grouping the users: </b></label><br>    
+            {% for column in data1 %}
+            <input style = "column-count: 2;" type="checkbox" name="usercolumns" value="{{ column }}">
+            <label>{{ column }}</label><br>
+            {% endfor %}
+            
+        </td>
+        <td style="padding:0 50px;"> </td>
+        <td valign ="top" >
+            <label for="user file"><b>Choose Access File Columns which represent Access rights of a user:</b></label><br>   
+            {% for item in data2 %}
+            <input type="checkbox" name="accesscolumns" value=" {{ item }}">
+            <label>{{ item }}</label><br>
+            {% endfor %}
+            
+        </td>
+    </tr>
+    </table>
+      <br>      
+    <center><input type="submit" name="submit" value="Submit"></center>
+    <br>
+ </form>
+            
+    </div>
+</div>
+<div class="loader"></div>
+</body>
+
+</html>
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+        background-image: url("static/background.jpeg") ; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        }
+        h1 {text-align: center;
+                font-family: "Arial Black", sans-serif;
+                font-size: 2.5em;
+                letter-spacing: -1px;
+                background-color: black;
+                color: white;
+                }
+    </style>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>    
+<body>
+    <h1>New users Recommendation</h1>
+
+<h2><b>Number of Entitlement Assign to this New User </b>: {{ inp_data|length }}</h2>
+<br></br>
+<table class="w3-table-all w3-card-4">
+    <tr >
+        {% for col in names %}
+        <th >{{ col }}</th>
+        {% endfor %}
+    </tr>
+    {% for i in inp_data %}
+    <tr>
+        {% for val in i %}
+        <td>{{ val }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

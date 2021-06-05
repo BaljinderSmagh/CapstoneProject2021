@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+        background-image: url("static/background.jpeg") ; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        }
+        h1 {text-align: center;
+                font-family: "Arial Black", sans-serif;
+                font-size: 2.5em;
+                letter-spacing: -1px;
+                background-color: black;
+                color: white;
+                }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Title</title>
+</head>
+<body>
+<h1>{{ user_id }}'s Details</h1>
+
+<table class="w3-table-all w3-card-4">
+    
+    {% for key, val in user_data.items() %}
+    <tr>
+        {% if key in ['ent_remain','ent_add','ent_remove'] %}
+        <td><b>{{ key }}</b></td>
+        <td>
+            <table>
+                <tr><td><b>Number of Entitlement</b></td>
+                    <td>{{ val[0] }}</td></tr>
+                    <tr>
+                        {% for col in ent_cols[1:] %}
+                        <td><b>{{ col }}</b></td>
+                        {% endfor %}
+                    </tr>
+                {% for values in val[1:] %}
+                <tr>
+                    {% for v in values %}
+                        <td> {{ v }}</td>
+                        {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </td>
+        {% else %}
+        <td><b>{{ key }}</b></td>
+        <td>{{ val }}</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>

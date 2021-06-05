@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>First Page</title>
+        <style>
+            body {
+            background-image: url("static/background.jpeg") ; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+            }
+            
+            h1 {text-align: center;
+                font-family: "Arial Black", sans-serif;
+                font-size: 2.5em;
+                letter-spacing: -1px;
+                background-color: black;
+                color: white;
+                }
+                .cc-profile-image a:before {
+                content: "";
+                border: 15px solid rgba(55, 140, 63, 0.6);
+                border-radius: 50%;
+                height: 180px;
+                width: 180px;
+                position: absolute;
+                left: 0;
+                -webkit-animation: pulsate 1.6s ease-out;
+                animation: pulsate 1.6s ease-out;
+                -webkit-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+                opacity: 0.0;
+                z-index: 99;
+            }
+            h2 {text-align: center;
+                color:rgb(3, 3, 3);}
+            p {text-align: center;
+                color:rgb(12, 11, 11);}
+            div {text-align: center;
+                color:rgb(17, 16, 16);}          
+          </style>
+    </head>
+    <body>
+        <h1>EXPLORING USER IDENTETIES AND ACCESS MANAGEMENT</h1>
+        <br></br>
+        <div style="background-color: #cbcbd2;
+        border: 2px solid black;
+        opacity: 0.8;">
+        <h2>Upload the user and access files here</h2>
+        <div>
+            <form class="" action="" method="post" enctype="multipart/form-data">
+            <label for="user file"><b>User File:</b></label>    
+            <input type="file" name="csvfile1" value=""><br><br>
+            <!-- <input type="submit" name="" value="Submit"><br><br> -->
+            <label for="access file"><b>Access File:</b></label>
+            <input type="file" name="csvfile2" value=""><br><br>
+            <input type="submit" name="" value="Submit">
+            <br>
+            </form>
+            <br>
+        </div>
+        </div>
+        
+    </body>
+</html>
