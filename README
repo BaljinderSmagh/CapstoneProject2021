@@ -1,0 +1,10 @@
+First create a environment where you can run the flask application.
+There are some libraries in requirements.txt file which are not required.
+In that environment install the flask library  and basic libraries required for code.
+
+#Carefully write all the path address needs to be added before running.
+
+#First page uploads user and access file.
+#Second page select columns from user file for validation of results
+#Also on second page select the access file columns related to access rights for training the model
+#Third page wills show the results and links for further detials
